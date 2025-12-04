@@ -3,13 +3,16 @@
 #include <string>
 #include <sstream>
 using namespace std;
+
 static const int dirs[8][2] = {{1,0}, {0,1},
                                {-1,0}, {0,-1},
                                {1,1}, {1,-1},
                                {-1, -1}, {-1, 1}};
+
 int main() {
 	vector<vector<char>> grid;
     string line;
+
     while (getline(cin, line)) {
         if (line.empty()) continue;
         vector<char> row;
@@ -19,8 +22,10 @@ int main() {
         }
         grid.push_back(row);
     }
+
     int result = 0;
     bool removed = true;
+
     while(removed){
         int change = 0;
         for(size_t i = 0; i < grid.size(); i++){
@@ -44,6 +49,7 @@ int main() {
         if(change == 0) break;
         else result += change;
     }
+    
     cout << result;
     return 0;
 }
